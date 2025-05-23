@@ -11,9 +11,14 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: 'Name of the workflow'
+        description: 'Deployment environment name'
         required: true
-        default: 'Demo 1'
+        default: 'Development'
+        type: choice
+        options:
+          - Staging
+          - Production
+          - Development
       version:
         description: 'Version of the workflow'
         required: true
