@@ -1,5 +1,27 @@
 name: Events Demo 1
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Name of the workflow'
+        required: true
+        default: 'Demo 1'
+      version:
+        description: 'Version of the workflow'
+        required: true
+        default: '1.0.0'
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'production'
 jobs:
   deploy:
     runs-on: ubuntu-latest
